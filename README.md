@@ -101,7 +101,7 @@ end_time = '2023-02-01 23:00:00'
     _create_record(r)_
 
 ```python
-    create_records("This is a sample record")
+    create_record("This is a sample record")
 ```
 
 - exit program with error message
