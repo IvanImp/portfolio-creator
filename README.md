@@ -84,13 +84,25 @@ end_time = '2023-02-01 23:00:00'
   
     _to_percent(value)_
 
+```python
+    to_percent(0.11273)
+```
+
 - convert date time (YYYY-MM-DD HH:MM:SS) to epoch
   
     _to_epoch(value)_
 
+```python
+    to_epoch("2023-01-01 00:00:00")
+```
+
 - create record 
 
     _create_record(r)_
+
+```python
+    create_records("This is a sample record")
+```
 
 - exit program with error message
 
