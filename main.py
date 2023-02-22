@@ -21,22 +21,28 @@ for c in contracts:
 
 
 # Sharpe ratio for optimal weights
-weights = models.get_optimal_weight(df)
-print(weights)
-weights = np.array(list(weights.values()))
+optimal_weights = models.get_optimal_weight(df)
+print("Optimal weights for Portfolio:", optimal_weights)
+weights = np.array(list(optimal_weights.values()))
 
 # portfolio expected return
 hourly_return = df.pct_change()
 portfolio_return = np.sum(hourly_return.mean() * weights) * 24 * 30
-print("portfolio monthly expected return:", utils.to_percent(portfolio_return))
+print("Portfolio monthly expected return:", utils.to_percent(portfolio_return))
 
 # portfolio variance
 portfolio_covariance_matrix = hourly_return.cov() * 24 * 30
 portfolio_variance = np.dot(weights, np.dot(
     portfolio_covariance_matrix, weights))
-print("portfolio monthly variance:", utils.to_percent(portfolio_variance))
+print("Portfolio monthly variance:", utils.to_percent(portfolio_variance))
 
 # standard deviation: represents risk/volatility
 portfolio_standard_deviation = np.sqrt(portfolio_variance)
-print("portfolio monthly standard deviation:",
+print("Portfolio monthly standard deviation:",
       utils.to_percent(portfolio_standard_deviation))
+
+utils.create_record("Contracts: " + str(contracts) + "\n" +
+                    "Interval: " + interval + "\n" +
+                    "Start Time: " + start_time + "\n" +
+                    "End Time" + end_time + "\n" +
+                    "Optimal Weights" + str(optimal_weights) + "\n")
