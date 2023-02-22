@@ -31,6 +31,8 @@ In portfolio-creator directory:
 - README.md
 - requirements.txt
 - .gitignore
+- records/
+  - records_xxxxxxxxx.xxxxxx
 
 ## Files
 
@@ -108,3 +110,9 @@ end_time = '2023-02-01 23:00:00'
 
     _exit_program_w_err(err_msg, err)_
 
+## Folder
+
+### records
+
+**records folder** contains all the generated output.
+Once the program is run, a record with the name of record__<timestamp> will be created in records directory (will be created if directory does not exist)
